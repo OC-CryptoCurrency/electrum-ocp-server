@@ -5,22 +5,22 @@ detailed information on how to configure your server.
 TLDR:
 # sudo ./configure
 # sudo python ./setup.py install
-# electrum-nevacoin-server start
-# electrum-nevacoin-server stop
+# electrum-ocp-server start
+# electrum-ocp-server stop
 
 
 Note: If you want to run the server without installing it on your
-system, just run 'run_electrum_nevacoin_server"
+system, just run 'run_electrum_ocp_server"
 
 
-1. Install and run nevacoind.
+1. Install and run ocpd.
 ----------------------------
 
-You will need to run nevacoind with the config option txindex=1. If you
-have not previously done so, you may need to reindex the nevacoind
+You will need to run ocpd with the config option txindex=1. If you
+have not previously done so, you may need to reindex the ocpd
 blockchain
 
-Note: you cannot use a pruning nevacoind (possible since 0.11).  A full nevacoin node is required in order to know for each
+Note: you cannot use a pruning ocpd (possible since 0.11).  A full ocp node is required in order to know for each
 address if it has been used. Pruning occurs only at the level of the
 Electrum database.
 
@@ -32,14 +32,14 @@ You need to run the script as root:
 # sudo ./configure
 
 It will:
- * create the configuration file in /etc/electrum-nevacoin.conf
+ * create the configuration file in /etc/electrum-ocp.conf
  * create a user that will run the daemon
  * optionally, download a fresh database from the Electrum-CREDIT Foundry.
 
 If you choose not to use the Foundry, your server will have to build
 the database from scratch. This process can take several days. To
 speed it up, it is recommended to locate your database in shared
-memory, in electrum-nevacoin.conf: path = /run/shm/electrum-nevacoin_db
+memory, in electrum-ocp.conf: path = /run/shm/electrum-ocp_db
 
 Note: The 'configure' script does not configure SSL and IRC. You will
 need to manually edit the configuration file in order to enable SSL on
@@ -57,31 +57,31 @@ Note: You will need to redo this everytime you pull code from git.
 4. Using the server
 -------------------
 
-Use 'electrum-nevacoin-server' to start and stop the server:
+Use 'electrum-ocp-server' to start and stop the server:
 
-# electrum-nevacoin-server <start|stop|status|getinfo>
+# electrum-ocp-server <start|stop|status|getinfo>
 
 The server will write a log file in its database path.
 
 
-5. Add electrum-nevacoin-server to your system's services
+5. Add electrum-ocp-server to your system's services
 ----------------------------------------------------
 
-If your system supports it, you may add electrum-nevacoin-server to the
+If your system supports it, you may add electrum-ocp-server to the
 /etc/init.d directory. This will ensure that the server is started and
 stopped automatically, and that the database is closed safely whenever
 your machine is rebooted.
 
-# ln -s `which electrum-nevacoin-server` /etc/init.d/electrum-nevacoin-server
-# update-rc.d electrum-nevacoin-server defaults
+# ln -s `which electrum-ocp-server` /etc/init.d/electrum-ocp-server
+# update-rc.d electrum-ocp-server defaults
 
 
 
 6. Troubleshooting:
 -------------------
 
- * if your server or nevacoind is killed because is uses too much
-   memory, configure nevacoind to limit the number of connections
+ * if your server or ocpd is killed because is uses too much
+   memory, configure ocpd to limit the number of connections
 
  * if you see "Too many open files" errors, you may need to increase
    your user's File Descriptors limit. For this, see
