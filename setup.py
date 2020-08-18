@@ -28,7 +28,7 @@ setup(
     maintainer="ocp",
     maintainer_email="dev@ocprotocol.com",
     license="GNU Affero GPLv3",
-    url="https://github.com/nevacoin/electrum-ocp-server/",
+    url="https://github.com/OC-CryptoCurrency/electrum-ocp-server",
     long_description="""Server for the Electrum Lightweight ocp Wallet"""
 )
 
