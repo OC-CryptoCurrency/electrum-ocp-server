@@ -91,7 +91,7 @@ if [ ! -d $path ]; then
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
 	mkdir -p $path
-	wget -O - "http://electrum1.ocpotocol.com/electrum-nevacoin-fulltree-latest.tar.gz" | tar --extract --gunzip --strip-components 1 --directory $path --file -
+	wget -O - "http://electrum1.ocpotocol.com/electrum-ocp-fulltree-latest.tar.gz" | tar --extract --gunzip --strip-components 1 --directory $path --file -
     fi
 fi
 
@@ -124,4 +124,4 @@ fi
 echo "Configuration written to $electrum_config."
 echo "Please edit this file to finish the configuration."
 echo "If you have not done so, please run 'python setup.py install'"
-echo "Then, run 'electrum-nevacoin-server' to start the daemon"
+echo "Then, run 'electrum-ocp-server' to start the daemon"
