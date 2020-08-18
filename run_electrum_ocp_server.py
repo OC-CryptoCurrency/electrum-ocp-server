@@ -28,14 +28,14 @@ import imp
 
 
 if os.path.dirname(os.path.realpath(__file__)) == os.getcwd():
-    imp.load_module('electrumnevacoinserver', *imp.find_module('src'))
+    imp.load_module('electrumocpserver', *imp.find_module('src'))
 
-from electrumnevacoinserver import storage, networks, utils
-from electrumnevacoinserver.processor import Dispatcher, print_log
-from electrumnevacoinserver.server_processor import ServerProcessor
-from electrumnevacoinserver.blockchain_processor import BlockchainProcessor
-from electrumnevacoinserver.stratum_tcp import TcpServer
-from electrumnevacoinserver.stratum_http import HttpServer
+from electrumocpserver import storage, networks, utils
+from electrumocpserver.processor import Dispatcher, print_log
+from electrumocpserver.server_processor import ServerProcessor
+from electrumocpserver.blockchain_processor import BlockchainProcessor
+from electrumocpserver.stratum_tcp import TcpServer
+from electrumocpserver.stratum_http import HttpServer
 
 
 logging.basicConfig()
@@ -80,8 +80,8 @@ def create_config(filename=None):
     config = ConfigParser.ConfigParser()
     # set some defaults, which will be overwritten by the config file
     config.add_section('server')
-    config.set('server', 'banner', 'Welcome to nevacoin Electrum!')
-    config.set('server', 'banner_file', '/etc/electrum-nevacoin.banner')
+    config.set('server', 'banner', 'Welcome to ocp Electrum!')
+    config.set('server', 'banner_file', '/etc/electrum-ocp.banner')
     config.set('server', 'host', 'localhost')
     config.set('server', 'electrum_rpc_port', '8002')
     config.set('server', 'report_host', '')
@@ -98,13 +98,13 @@ def create_config(filename=None):
 	
     config.set('server', 'irc', 'no')
     config.set('server', 'irc_nick', '')
-    config.set('server', 'coin', 'nevacoin')
-    config.set('server', 'logfile', '/var/log/electrum-nevacoin.log')
+    config.set('server', 'coin', 'ocp')
+    config.set('server', 'logfile', '/var/log/electrum-ocp.log')
     config.set('server', 'donation_address', '')
     config.set('server', 'max_subscriptions', '10000')
 
     config.add_section('leveldb')
-    config.set('leveldb', 'path', '/dev/shm/electrum-nevacoin_db')
+    config.set('leveldb', 'path', '/dev/shm/electrum-ocp_db')
     config.set('leveldb', 'pruning_limit', '100')
     config.set('leveldb', 'utxo_cache', str(64*1024*1024))
     config.set('leveldb', 'hist_cache', str(128*1024*1024))
@@ -113,12 +113,12 @@ def create_config(filename=None):
 
     # set network parameters
     config.add_section('network')
-    config.set('network', 'type', 'nevacoin_main')
+    config.set('network', 'type', 'ocp_main')
 
     # try to find the config file in the default paths
     if not filename:
         for path in ('/etc/', ''):
-            filename = path + 'electrum-nevacoin.conf'
+            filename = path + 'electrum-ocp.conf'
             if os.path.isfile(filename):
                 break
 
