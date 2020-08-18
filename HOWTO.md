@@ -20,8 +20,8 @@ Conventions
 In this document, lines starting with a hash sign (#) or a dollar sign ($)
 contain commands. Commands starting with a hash should be run as root,
 commands starting with a dollar should be run as a normal user (in this
-document, we assume that user is called 'nevacoin'). We also assume the
-nevacoin user has sudo rights, so we use '$ sudo command' when we need to.
+document, we assume that user is called 'ocp'). We also assume the
+ocp user has sudo rights, so we use '$ sudo command' when we need to.
 
 Strings that are surrounded by "lower than" and "greater than" ( < and > )
 should be replaced by the user with something appropriate. For example,
@@ -54,9 +54,9 @@ Python libraries. Python 2.7 is the minimum supported version.
 
 **Hardware.** The lightest setup is a pruning server with diskspace 
 requirements of about 4 GB for the electrum database. However note that 
-you also need to run nevacoind and keep a copy of the full blockchain, 
+you also need to run ocpd and keep a copy of the full blockchain, 
 which is roughly 4 GB in July 2015. If you have less than 2 GB of RAM 
-make sure you limit nevacoind to 8 concurrent connections. If you have more 
+make sure you limit ocpd to 8 concurrent connections. If you have more 
 resources to spare you can run the server with a higher limit of historic
 transactions per address. CPU speed is important for the initial block
 chain import, but is also important if you plan to run a public Electrum server, 
@@ -67,39 +67,39 @@ has enough RAM to hold and process the leveldb database in tmpfs (e.g. /dev/shm)
 Instructions
 ------------
 
-### Step 1. Create a user for running nevacoind and Electrum server
+### Step 1. Create a user for running ocpd and Electrum server
 
 This step is optional, but for better security and resource separation I
-suggest you create a separate user just for running `nevacoind` and Electrum.
+suggest you create a separate user just for running `ocpd` and Electrum.
 We will also use the `~/bin` directory to keep locally installed files
 (others might want to use `/usr/local/bin` instead). We will download source
 code files to the `~/src` directory.
 
-    $ sudo adduser nevacoin --disabled-password
+    $ sudo adduser ocp --disabled-password
     $ sudo apt-get install git
-    $ sudo su - nevacoin
+    $ sudo su - ocp
     $ mkdir ~/bin ~/src
     $ echo $PATH
 
-If you don't see `/home/nevacoin/bin` in the output, you should add this line
+If you don't see `/home/ocp/bin` in the output, you should add this line
 to your `.bashrc`, `.profile`, or `.bash_profile`, then logout and relogin:
 
     PATH="$HOME/bin:$PATH"
     $ exit
 
-### Step 2. Download nevacoind
+### Step 2. Download ocpd
 
-We currently recommend nevacoind 0.10.2.2 stable.
+We currently recommend ocpd 0.10.2.2 stable.
 
-If you prefer to compile nevacoind, here are some pointers for Ubuntu:
+If you prefer to compile ocpd, here are some pointers for Ubuntu:
 
     $ sudo apt-get install make g++ python-leveldb git build-essential libboost-all-dev libdb++-dev libminiupnpc-dev libcurl4-openssl-dev
-    $ sudo su - nevacoin
+    $ sudo su - ocp
     $ cd ~/src && git clone https://github.com/nevacoin-project/nevacoin.git
-    $ cd nevacoin/src
+    $ cd ocp/src
     $ make -f makefile.unix
-    $ strip nevacoind
-    $ cp -a nevacoind ~/bin
+    $ strip ocpd
+    $ cp -a ocpd ~/bin
 
 ### Step 3. Configure and start nevacoind
 
