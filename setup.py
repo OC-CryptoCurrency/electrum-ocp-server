@@ -1,35 +1,35 @@
 from setuptools import setup
 
 setup(
-    name="electrum-nevacoin-server",
+    name="electrum-ocp-server",
     version="1.0",
-    scripts=['run_electrum_nevacoin_server.py','electrum-nevacoin-server'],
+    scripts=['run_electrum_ocp_server.py','electrum-ocp-server'],
     install_requires=['plyvel','jsonrpclib', 'irc>=11'],
     package_dir={
-        'electrumnevacoinserver':'src'
+        'electrumocpserver':'src'
         },
     py_modules=[
-        'electrumnevacoinserver.__init__',
-        'electrumnevacoinserver.utils',
-        'electrumnevacoinserver.storage',
-        'electrumnevacoinserver.deserialize',
-        'electrumnevacoinserver.networks',
-        'electrumnevacoinserver.blockchain_processor',
-        'electrumnevacoinserver.server_processor',
-        'electrumnevacoinserver.processor',
-        'electrumnevacoinserver.version',
-        'electrumnevacoinserver.ircthread',
-        'electrumnevacoinserver.stratum_tcp',
-        'electrumnevacoinserver.stratum_http'
+        'electrumocpserver.__init__',
+        'electrumnocpserver.utils',
+        'electrumocpserver.storage',
+        'electrumocpserver.deserialize',
+        'electrumocpserver.networks',
+        'electrumocpserver.blockchain_processor',
+        'electrumocpserver.server_processor',
+        'electrumocpserver.processor',
+        'electrumocpserver.version',
+        'electrumocpserver.ircthread',
+        'electrumocpserver.stratum_tcp',
+        'electrumocpserver.stratum_http'
     ],
-    description="nevacoin Electrum Server",
+    description="ocp Electrum Server",
     author="Thomas Voegtlin",
     author_email="thomasv1@gmx.deg",
-    maintainer="nevacoin",
-    maintainer_email="support@nevacoin.org",
+    maintainer="ocp",
+    maintainer_email="dev@ocprotocol.com",
     license="GNU Affero GPLv3",
-    url="https://github.com/nevacoin/electrum-nevacoin-server/",
-    long_description="""Server for the Electrum Lightweight nevacoin Wallet"""
+    url="https://github.com/nevacoin/electrum-ocp-server/",
+    long_description="""Server for the Electrum Lightweight ocp Wallet"""
 )
 
 
