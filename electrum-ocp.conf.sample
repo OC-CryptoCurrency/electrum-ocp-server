@@ -5,7 +5,7 @@ username =
 host = 0.0.0.0
 # ports
 electrum_rpc_port = 8002
-stratum_tcp_port = 5096
+stratum_tcp_port = 5109
 #stratum_tcp_ssl_port = 50002
 #report_host =
 #report_stratum_tcp_port = 50001
@@ -32,6 +32,6 @@ pruning_limit = 1000
 [nevacoind]
 nevacoind_host = localhost
 nevacoind_port = 3791
-# user and password from nevacoin.conf
+# user and password from ocp.conf
 nevacoind_user =
 nevacoind_password =
