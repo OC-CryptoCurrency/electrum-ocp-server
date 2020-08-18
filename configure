@@ -11,7 +11,7 @@ fi
 source_dir=$(cd "$(dirname "${BASH_SOURCE[0]}" )"; pwd)
 
 
-electrum_config="/etc/electrum-nevacoin.conf"
+electrum_config="/etc/electrum-ocp.conf"
 function read_config()
 {
     text=$1
@@ -25,7 +25,7 @@ function write_config()
 # create config file
 if [ ! -f $electrum_config ]; then
     echo "Creating config file"
-    cp $source_dir"/electrum-nevacoin.conf.sample" $electrum_config
+    cp $source_dir"/electrum-ocp.conf.sample" $electrum_config
 fi
 
 
@@ -52,7 +52,7 @@ fi
 
 
 # read path from config
-default_path="/var/electrum-nevacoin-server"
+default_path="/var/electrum-ocp-server"
 path=$(read_config "path")
 if ! [ "$path" ]; then
     read -p "Path for database (default: $default_path) " -r
@@ -65,7 +65,7 @@ if ! [ "$path" ]; then
 fi
 
 # read path from config
-default_logfile="/var/log/electrum-nevacoin.log"
+default_logfile="/var/log/electrum-ocp.log"
 logfile=$(read_config "logfile")
 if ! [ "$logfile" ]; then
     read -p "Path of logfile (default: $default_logfile) " -r
@@ -91,7 +91,7 @@ if [ ! -d $path ]; then
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
 	mkdir -p $path
-	wget -O - "http://electrum1.nevacoin.org/electrum-nevacoin-fulltree-latest.tar.gz" | tar --extract --gunzip --strip-components 1 --directory $path --file -
+	wget -O - "http://electrum1.ocpotocol.com/electrum-nevacoin-fulltree-latest.tar.gz" | tar --extract --gunzip --strip-components 1 --directory $path --file -
     fi
 fi
 
@@ -107,16 +107,16 @@ fi
 chown $user:$user $logfile
 
 
-nevacoind_user=$(read_config "nevacoind_user")
-if ! [ "$nevacoind_user" ]; then
-    read -p "rpcuser (from your nevacoin.conf file): " -r
-    write_config "nevacoind_user" $REPLY
+ocpd_user=$(read_config "ocpd_user")
+if ! [ "$ocpd_user" ]; then
+    read -p "rpcuser (from your ocp.conf file): " -r
+    write_config "ocpd_user" $REPLY
 fi
 
-nevacoind_password=$(read_config "nevacoind_password")
-if ! [ "$nevacoind_password" ]; then
-    read -p "rpcpassword (from your nevacoin.conf file): " -r
-    write_config "nevacoind_password" $REPLY
+ocpd_password=$(read_config "ocpd_password")
+if ! [ "$ocpd_password" ]; then
+    read -p "rpcpassword (from your ocp.conf file): " -r
+    write_config "ocpd_password" $REPLY
 fi
 
 
