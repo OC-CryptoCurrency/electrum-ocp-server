@@ -12,12 +12,12 @@ stratum_tcp_port = 5109
 #report_stratum_tcp_ssl_port = 50002
 password = secret
 banner = Welcome to Electrum!
-banner_file = /etc/electrum-nevacoin.banner
+banner_file = /etc/electrum-ocp.banner
 irc = yes
 irc_nick = nevacoin
-#ssl_certfile = /path/to/electrum-nevacoin-server.crt
-#ssl_keyfile = /path/to/electrum-nevacoin-server.key
-logfile = /var/log/electrum-nevacoin.log
+#ssl_certfile = /path/to/electrum-ocp-server.crt
+#ssl_keyfile = /path/to/electrum-ocp-server.key
+logfile = /var/log/electrum-ocp.log
 donation_address =
 
 # default backend is leveldb (pruning server)
@@ -29,9 +29,9 @@ path =
 # for each address, history will be pruned if it is longer than this limit
 pruning_limit = 1000
 
-[nevacoind]
-nevacoind_host = localhost
-nevacoind_port = 3791
+[ocpd]
+ocpd_host = localhost
+ocpd_port = 8882
 # user and password from ocp.conf
-nevacoind_user =
-nevacoind_password =
+ocpd_user =
+ocpd_password =
