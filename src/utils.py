@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 #
-# Electrum - lightweight nevacoin client
+# Electrum - lightweight ocp client
 # Copyright (C) 2011 thomasv@gitorious
-#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -160,7 +159,7 @@ def b58encode(v):
         long_value = div
     result = __b58chars[long_value] + result
 
-    # nevacoin does a little leading-zero-compression:
+    # ocp does a little leading-zero-compression:
     # leading 0-bytes in the input become leading-1s
     nPad = 0
     for c in v:
