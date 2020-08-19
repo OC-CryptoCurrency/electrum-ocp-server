@@ -66,7 +66,7 @@ class Storage(object):
         print_log("UTXO tree root hash:", self.root_hash.encode('hex'))
         print_log("Coins in database:", v)
 
-    # convert between nevacoin addresses and 20 bytes keys used for storage.
+    # convert between ocp addresses and 20 bytes keys used for storage.
     def address_to_key(self, addr):
         return bc_address_to_hash_160(addr)
 
@@ -105,7 +105,7 @@ class Storage(object):
     def listunspent(self, addr):
         key = self.address_to_key(addr)
         if key is None:
-            raise BaseException('Invalid nevacoin address', addr)
+            raise BaseException('Invalid ocp address', addr)
 
         out = []
         for k, v in self.db_utxo.iterator(start=key):
@@ -161,8 +161,8 @@ class Storage(object):
         return eval(s)
 
 
-    def write_undo_info(self, height, nevacoind_height, undo_info):
-        if height > nevacoind_height - 100 or self.test_reorgs:
+    def write_undo_info(self, height, ocpd_height, undo_info):
+        if height > ocpd_height - 100 or self.test_reorgs:
             self.db_undo.put("undo_info_%d" % (height % 100), repr(undo_info))
 
 
