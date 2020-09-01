@@ -50,9 +50,7 @@ def var_int(i):
         return "ff" + int_to_hex(i, 8)
 
 
-Hash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
-
-HashBlake2s = lambda x: blake2s(x).digest()
+Hash = lambda x: hashlib.sha256(hashlib.sha256(hashlib.sha256(x).digest()).digest()).digest()
 
 
 hash_encode = lambda x: x[::-1].encode('hex')
