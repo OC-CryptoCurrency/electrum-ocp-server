@@ -2,13 +2,13 @@
 
 params = {
     'ocp_main': {
-        'pubkey_address': 53,
+        'pubkey_address': 0,
         'script_address': 5,
-        'genesis_hash': '0000067865dd821b9f8b2dcdfb367c9d1344d3335fa6fc6d7940b026b88169a6'
+        'genesis_hash': '00000068ea1bda5d79b59679d475024f8bc3344a5571a2c00bed231c7495fae6'
     },
     'ocp_test': {
         'pubkey_address': 111,
         'script_address': 196,
-        'genesis_hash': '0x005a03c21a8fd3cec753cd5d8bcb0b8b18071ee65f8c77af13e671c1bce771f4'
+        'genesis_hash': '0000b4d12c8764bbcad6ab4c55d935cba73f4b48796bee054ca9a76a4c79d83a'
     }
 }
