@@ -25,7 +25,7 @@ Dependencies
 ------------
 apt-get install python-setuptools python-openssl python-leveldb libleveldb-dev
 
-easy_install jsonrpclib irc plyvel pyblake2
+easy_install jsonrpclib irc plyvel
 
 
 Installation
