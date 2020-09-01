@@ -19,7 +19,6 @@ import threading
 import time
 import hashlib
 import sys
-from pyblake2 import blake2s
 
 __b58chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 __b58base = len(__b58chars)
