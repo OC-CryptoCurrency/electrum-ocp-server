@@ -10,7 +10,7 @@ setup(
         },
     py_modules=[
         'electrumocpserver.__init__',
-        'electrumnocpserver.utils',
+        'electrumocpserver.utils',
         'electrumocpserver.storage',
         'electrumocpserver.deserialize',
         'electrumocpserver.networks',
